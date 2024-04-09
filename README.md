@@ -28,8 +28,32 @@ This is a Library Management System implemented in Java using Hibernate for data
        <h6> * Variables: adminId, username, password </h6>
  <h3>  5.) Loan: Represents a loan entity with attributes such as loanId, borrowDate, and returnDate. </h3>
        <h6> * Variables: loanId, borrowDate, returnDate </h6>
+       
+# Diagram : 
+            +--------------+        +--------------+        +------------+        +---------------+         +-------------+  
+            |   Library    |        |     Book     |        |   Member   |        |      Loan     |         |    Admin    |  
+            +--------------+        +--------------+        +------------+        +---------------+         +-------------+
+            | P libraryId  |        | P bookId     |        | P memberId |        | P loanId       |         | P adminId   |
+            | - name       |        | - title      |        | - name     |        | F memberId     |         | - username  |
+            |              |        | - author     |        | - contact  |        | F bookId       |         | - password  |
+            |              |        | - ISBN       |        | - address  |        | - borrowDate   |         |             |
+            |              |        | - genre      |        |            |        | - returnDate   |         |             |
+            |              |        |              |        |            |        |                |         |             |
+            +--------------+        +--------------+        +------------+        +---------------+         +-------------+
+                                                    |                         |
+                                                    +-------------------------+
+                                                    |
+                                                    v
+                                               +---------+
+                                               |  Admin  |
+                                               +---------+
+                                               | P adminId|
+                                               | - username|
+                                               | - password|
+                                               +---------+
 
-# Relationships & Mappings: <br>
+
+# Relationships & Mappings: 
       * Library has a one-to-many relationship with Book and Member entities. 
       * Library has a many-to-one relationship with Admin entity. 
       * Book has a many-to-one relationship with Library and Admin entities.
